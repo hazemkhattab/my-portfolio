@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Light Mode */
+  --color-background: #F5F7FA;
+  --color-foreground: #334155;
+
+  --color-card: #FFFFFF;
+  --color-card-foreground: #0F172A;
+
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #0F172A;
+
+  --color-primary: #7C3AED;
+  --color-primary-foreground: #FFFFFF;
+
+  --color-secondary: #0EA5E9;
+  --color-secondary-foreground: #FFFFFF;
+
+  --color-muted: #F5F7FA;
+  --color-muted-foreground: #334155;
+
+  --color-accent: #0EA5E9;
+  --color-accent-foreground: #FFFFFF;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #FFFFFF;
+
+  --color-border: #E2E8F0;
+  --color-input: #FFFFFF;
+  --color-ring: #7C3AED;
+
+  --color-chart-1: #e67e22;
+  --color-chart-2: #2d8659;
+  --color-chart-3: #1e3a5f;
+  --color-chart-4: #f1c40f;
+  --color-chart-5: #e74c3c;
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  --font-sans: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-heading: "Inter", sans-serif;
+}
+
+@theme dark {
+  /* Dark Mode Colors */
+  --color-background: #0A0A0F;
+  --color-foreground: #E2E8F0;
+
+  --color-card: #1A1A24;
+  --color-card-foreground: #F1F5F9;
+
+  --color-popover: #1A1A24;
+  --color-popover-foreground: #F1F5F9;
+
+  --color-primary: #A78BFA;
+  --color-primary-foreground: #0A0A0F;
+
+  --color-secondary: #22D3EE;
+  --color-secondary-foreground: #0A0A0F;
+
+  --color-muted: #1E1E2E;
+  --color-muted-foreground: #94A3B8;
+
+  --color-accent: #22D3EE;
+  --color-accent-foreground: #0A0A0F;
+
+  --color-destructive: #F87171;
+  --color-destructive-foreground: #0A0A0F;
+
+  --color-border: #2D2D3F;
+  --color-input: #1A1A24;
+  --color-ring: #A78BFA;
+}
+
+/*
+  The default border color has changed to currentColor in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border);
+  }
+}
+
+@layer utilities {
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+@layer base {
+  :root {
+    /* Light Mode Colors */
+    --background: #F5F7FA;
+    --foreground: #334155;
+    --card: #FFFFFF;
+    --card-foreground: #0F172A;
+    --popover: #FFFFFF;
+    --popover-foreground: #0F172A;
+    --primary: #7C3AED;
+    --primary-foreground: #FFFFFF;
+    --secondary: #0EA5E9;
+    --secondary-foreground: #FFFFFF;
+    --muted: #F5F7FA;
+    --muted-foreground: #334155;
+    --accent: #0EA5E9;
+    --accent-foreground: #FFFFFF;
+    --destructive: #ef4444;
+    --destructive-foreground: #FFFFFF;
+    --border: #E2E8F0;
+    --input: #FFFFFF;
+    --ring: #7C3AED;
+    --radius: 0.5rem;
+    
+    /* Gradient colors */
+    --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+    --gradient-secondary: linear-gradient(135deg, #0EA5E9 0%, #22D3EE 100%);
+    --gradient-accent: linear-gradient(135deg, #7C3AED 0%, #0EA5E9 100%);
+    --gradient-hero: linear-gradient(135deg, #7C3AED 0%, #A78BFA 50%, #0EA5E9 100%);
+    --gradient-card: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(14, 165, 233, 0.1) 100%);
+    
+    /* Shadows */
+    --shadow-subtle: rgba(0, 0, 0, 0.05);
+    
+    /* Override Tailwind v4 theme colors */
+    --color-background: #F5F7FA;
+    --color-foreground: #334155;
+    --color-card: #FFFFFF;
+    --color-card-foreground: #0F172A;
+    --color-border: #E2E8F0;
+    --color-primary: #7C3AED;
+    --color-primary-foreground: #FFFFFF;
+  }
+
+  .dark {
+    /* Dark Mode Colors - Modern, High Contrast */
+    --background: #0A0A0F;
+    --foreground: #E2E8F0;
+    --card: #1A1A24;
+    --card-foreground: #F1F5F9;
+    --popover: #1A1A24;
+    --popover-foreground: #F1F5F9;
+    --primary: #A78BFA;
+    --primary-foreground: #0A0A0F;
+    --secondary: #22D3EE;
+    --secondary-foreground: #0A0A0F;
+    --muted: #1E1E2E;
+    --muted-foreground: #94A3B8;
+    --accent: #22D3EE;
+    --accent-foreground: #0A0A0F;
+    --destructive: #F87171;
+    --destructive-foreground: #0A0A0F;
+    --border: #2D2D3F;
+    --input: #1A1A24;
+    --ring: #A78BFA;
+    --radius: 0.5rem;
+    
+    /* Dark Mode Gradients - Vibrant and Modern */
+    --gradient-primary: linear-gradient(135deg, #A78BFA 0%, #C4B5FD 100%);
+    --gradient-secondary: linear-gradient(135deg, #22D3EE 0%, #67E8F9 100%);
+    --gradient-accent: linear-gradient(135deg, #A78BFA 0%, #22D3EE 100%);
+    --gradient-hero: linear-gradient(135deg, #A78BFA 0%, #C4B5FD 50%, #22D3EE 100%);
+    --gradient-card: linear-gradient(135deg, rgba(167, 139, 250, 0.15) 0%, rgba(34, 211, 238, 0.15) 100%);
+    
+    /* Dark Mode Shadows - Subtle with color tints */
+    --shadow-subtle: rgba(167, 139, 250, 0.1);
+    
+    /* Override Tailwind v4 theme colors */
+    --color-background: #0A0A0F;
+    --color-foreground: #E2E8F0;
+    --color-card: #1A1A24;
+    --color-card-foreground: #F1F5F9;
+    --color-border: #2D2D3F;
+    --color-primary: #A78BFA;
+    --color-primary-foreground: #0A0A0F;
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--card-foreground);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Accessibility: Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus visible styles for keyboard navigation */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Skip link styles */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Gradient utilities */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-bg-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-bg-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-bg-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-bg-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-border {
+    border-image: var(--gradient-primary) 1;
+  }
+
+  /* Animated gradient background */
+  .gradient-animated {
+    background: linear-gradient(-45deg, #7C3AED, #A78BFA, #0EA5E9, #22D3EE);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(226, 232, 240, 0.5);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .dark .glass {
+    background: rgba(26, 26, 36, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(45, 45, 63, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 0 20px rgba(167, 139, 250, 0.05);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .glass-dark {
+    background: rgba(10, 10, 15, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+  }
+
+  /* Dark mode specific enhancements */
+  .dark .gradient-animated {
+    background: linear-gradient(-45deg, #A78BFA, #C4B5FD, #22D3EE, #67E8F9);
+    background-size: 400% 400%;
+  }
+
+  /* Smooth theme transitions - respecting reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    :root,
+    .dark {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
