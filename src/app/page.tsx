@@ -38,6 +38,21 @@ export default function Home() {
     setIsSubmitting(false);
   };
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offset = 80; // Height of fixed navbar
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const skills = [
     "React.js", "TypeScript", "Next.js", "Tailwind CSS", "Redux", "Context API",
     "HTML5", "CSS3", "JavaScript (ES6+)", "Git & GitHub", "REST APIs", "Responsive Design", "UI/UX Implementation"
@@ -94,9 +109,9 @@ export default function Home() {
             <a href="#" className="text-xl font-bold gradient-text focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded">Hazem Khattab</a>
             <div className="flex items-center gap-6">
               <div className="hidden md:flex items-center gap-8">
-                <a href="#about" className="hover:text-muted-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded">About</a>
-                <a href="#projects" className="hover:text-muted-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded">Projects</a>
-                <a href="#contact" className="hover:text-muted-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded">Contact</a>
+                <a href="#about" onClick={(e) => handleSmoothScroll(e, 'about')} className="hover:text-muted-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded cursor-pointer">About</a>
+                <a href="#projects" onClick={(e) => handleSmoothScroll(e, 'projects')} className="hover:text-muted-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded cursor-pointer">Projects</a>
+                <a href="#contact" onClick={(e) => handleSmoothScroll(e, 'contact')} className="hover:text-muted-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded cursor-pointer">Contact</a>
                 <Link href="/resume" className="hover:text-muted-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded">Resume</Link>
               </div>
               <ThemeToggle />

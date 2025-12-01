@@ -229,6 +229,11 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
   /* Accessibility: Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -238,6 +243,10 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+
+    html {
+      scroll-behavior: auto;
     }
   }
 
