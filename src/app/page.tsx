@@ -222,7 +222,7 @@ export default function Home() {
                 </motion.a>
                 <motion.a
                   variants={shouldReduceMotion ? {} : staggerItem}
-                  href="mailto:hazemkhattab1219@gmail.com"
+                  href="mailto:hazemahmedkhattabb@gmail.com"
                   className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
                   aria-label="Send email"
                 >
@@ -471,7 +471,7 @@ export default function Home() {
                 viewport={{ once: true, margin: "-100px" }}
                 className="text-center text-muted-foreground mt-8"
               >
-                Or email me directly at <a href="mailto:hazemkhattab1219@gmail.com" className="gradient-text-accent hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded">hazemkhattab1219@gmail.com</a>
+                Or email me directly at <a href="mailto:hazemahmedkhattabb@gmail.com" className="gradient-text-accent hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded">hazemahmedkhattabb@gmail.com</a>
               </motion.p>
             </div>
           </section>
