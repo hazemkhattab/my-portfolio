@@ -46,9 +46,9 @@ export default function ResumePage() {
             </p>
             <p className="text-muted-foreground mb-4">Shebin El-Kom, Egypt</p>
             <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground flex-wrap">
-              <span>Email: hazem@example.com</span>
+              <span>Email: hazemkhattab1219@gmail.com</span>
               <span aria-hidden="true">•</span>
-              <span>LinkedIn: linkedin.com/in/hazemkhattab</span>
+              <span>LinkedIn: linkedin.com/in/hazem-ahmed-khattab1/</span>
             </div>
           </motion.div>
 
@@ -146,8 +146,8 @@ export default function ResumePage() {
                 <h2 className="text-2xl font-bold gradient-text-accent">CONTACT</h2>
               </div>
               <div className="text-muted-foreground space-y-2">
-                <p className="hover:text-foreground transition-colors">📧 Email: hazem@example.com</p>
-                <p className="hover:text-foreground transition-colors">💼 LinkedIn: linkedin.com/in/hazemkhattab</p>
+                <p className="hover:text-foreground transition-colors">📧 Email: hazemkhattab1219@gmail.com</p>
+                <p className="hover:text-foreground transition-colors">💼 LinkedIn: linkedin.com/in/hazem-ahmed-khattab1/</p>
               </div>
             </motion.section>
           </motion.div>

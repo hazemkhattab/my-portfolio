@@ -169,7 +169,7 @@ export default function Home() {
                 </motion.a>
                 <motion.div variants={shouldReduceMotion ? {} : staggerItem}>
                   <Link
-                    href="/resume"
+                    href="https://drive.google.com/file/d/1fh4Am9FJUwZDHTvep6CS68UbSiy1MzwG/view?usp=drive_link"
                     className="px-6 py-3 glass border rounded-full hover:bg-white/10 transition-all transform hover:scale-105 flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                   >
                     <Download size={18} aria-hidden="true" />
