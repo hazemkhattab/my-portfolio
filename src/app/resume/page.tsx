@@ -77,6 +77,7 @@ export default function ResumePage() {
               </div>
               <div className="grid md:grid-cols-2 gap-2 text-muted-foreground" role="list" aria-label="Skills">
                 <div role="listitem">• React.js</div>
+                <div role="listitem">• Angular</div>
                 <div role="listitem">• TypeScript</div>
                 <div role="listitem">• Next.js</div>
                 <div role="listitem">• Tailwind CSS</div>
@@ -99,10 +100,11 @@ export default function ResumePage() {
               </div>
               <div className="space-y-6" role="list" aria-label="Projects">
                 <div role="listitem" className="pb-4 border-b border-border/50 last:border-0">
-                  <h3 className="text-xl font-semibold mb-2 text-foreground">Smart Venue Booking Platform</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-foreground">Hagz Now - Venue Booking Platform</h3>
                   <ul className="list-disc list-inside text-muted-foreground space-y-1 ml-4">
-                    <li>Multi-role platform with booking flows and availability features.</li>
-                    <li>Technologies: React, TypeScript, Tailwind.</li>
+                    <li>Multi-role booking app with JWT auth, dynamic booking flow, and real-time availability.</li>
+                    <li>Built dashboards for Admin, Owner, and User with analytics and booking management.</li>
+                    <li>Technologies: React, TypeScript, Context API, TailwindCSS, Formik, i18next.</li>
                   </ul>
                 </div>
                 <div role="listitem" className="pb-4 border-b border-border/50 last:border-0">
@@ -113,17 +115,19 @@ export default function ResumePage() {
                   </ul>
                 </div>
                 <div role="listitem" className="pb-4 border-b border-border/50 last:border-0">
-                  <h3 className="text-xl font-semibold mb-2 text-foreground">LMS Dashboard Interface</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-foreground">Angular E-Commerce Platform</h3>
                   <ul className="list-disc list-inside text-muted-foreground space-y-1 ml-4">
-                    <li>Dashboard for learning management with analytics and course browsing.</li>
-                    <li>Technologies: Next.js, TypeScript.</li>
+                    <li>Full-featured e-commerce platform with product catalog and shopping cart.</li>
+                    <li>Implemented user authentication and seamless checkout experience.</li>
+                    <li>Technologies: Angular, TypeScript, RxJS, Bootstrap.</li>
                   </ul>
                 </div>
                 <div role="listitem">
-                  <h3 className="text-xl font-semibold mb-2 text-foreground">AI Chat Assistant Interface</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-foreground">Smart Trash - Keep it Clean (Graduation Project)</h3>
                   <ul className="list-disc list-inside text-muted-foreground space-y-1 ml-4">
-                    <li>Modern chat UI with streaming animations and dark/light mode.</li>
-                    <li>Technologies: React, TypeScript.</li>
+                    <li>Smart bin system with real-time monitoring for waste management optimization.</li>
+                    <li>Integrated IoT sensors and dashboard for route optimization and environmental conservation.</li>
+                    <li>Technologies: IoT, React, Real-time Monitoring, Dashboard.</li>
                   </ul>
                 </div>
               </div>
@@ -134,9 +138,17 @@ export default function ResumePage() {
               <div className="border-b border-border pb-2 mb-4">
                 <h2 className="text-2xl font-bold gradient-text-secondary">EDUCATION</h2>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-1 text-foreground">BSc in Computers and Information</h3>
-                <p className="text-muted-foreground">Menoufia University, Egypt</p>
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-xl font-semibold mb-1 text-foreground">Full Stack using MERN</h3>
+                  <p className="text-muted-foreground">Information Technology Institute (ITI)</p>
+                  <p className="text-sm text-muted-foreground">07/2025 – 12/2025</p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-1 text-foreground">Bachelor in Computers and Information</h3>
+                  <p className="text-muted-foreground">Menoufia University, Egypt</p>
+                  <p className="text-sm text-muted-foreground">09/2019 – 07/2023</p>
+                </div>
               </div>
             </motion.section>
 

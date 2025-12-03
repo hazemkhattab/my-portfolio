@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { ArrowUp } from "lucide-react";
 
 export function CustomCursor() {
   const [isEnabled, setIsEnabled] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
@@ -28,7 +30,18 @@ export function CustomCursor() {
       setIsEnabled(!prefersReducedMotion);
     }
 
-    if (!isEnabled) return;
+    // Show scroll to top button when scrolled down
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    if (!isEnabled) {
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
 
     const handleMouseMove = (e: MouseEvent) => {
       cursorX.set(e.clientX);
@@ -52,6 +65,7 @@ export function CustomCursor() {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
       interactiveElements.forEach((el) => {
         el.removeEventListener("mouseenter", handleMouseEnter);
         el.removeEventListener("mouseleave", handleMouseLeave);
@@ -59,37 +73,24 @@ export function CustomCursor() {
     };
   }, [cursorX, cursorY, isEnabled]);
 
-  const toggleCursor = () => {
-    if (typeof window === "undefined") return;
-    const newValue = !isEnabled;
-    setIsEnabled(newValue);
-    localStorage.setItem("customCursorEnabled", String(newValue));
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   if (!isEnabled) {
-    return (
+    return showScrollTop ? (
       <button
-        onClick={toggleCursor}
-        className="fixed bottom-4 right-4 z-[1060] p-2 rounded-full bg-primary text-primary-foreground opacity-50 hover:opacity-100 transition-opacity"
-        aria-label="Enable custom cursor"
-        title="Enable custom cursor"
+        onClick={scrollToTop}
+        className="fixed bottom-4 right-4 z-[1060] p-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:scale-110 transition-all"
+        aria-label="Scroll to top"
+        title="Scroll to top"
       >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3 3L17 17M17 3L3 17"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
+        <ArrowUp size={24} />
       </button>
-    );
+    ) : null;
   }
 
   return (
@@ -124,27 +125,16 @@ export function CustomCursor() {
           }`}
         />
       </motion.div>
-      <button
-        onClick={toggleCursor}
-        className="fixed bottom-4 right-4 z-[1060] p-2 rounded-full bg-primary text-primary-foreground opacity-50 hover:opacity-100 transition-opacity"
-        aria-label="Disable custom cursor"
-        title="Disable custom cursor"
-      >
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-4 right-4 z-[1060] p-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:scale-110 transition-all"
+          aria-label="Scroll to top"
+          title="Scroll to top"
         >
-          <path
-            d="M3 3L17 17M17 3L3 17"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-      </button>
+          <ArrowUp size={24} />
+        </button>
+      )}
     </>
   );
 }

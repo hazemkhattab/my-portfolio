@@ -54,15 +54,15 @@ export default function Home() {
   };
 
   const skills = [
-    "React.js", "TypeScript", "Next.js", "Tailwind CSS", "Redux", "Context API",
+    "React.js", "Angular", "TypeScript", "Next.js", "Tailwind CSS", "Redux", "Context API",
     "HTML5", "CSS3", "JavaScript (ES6+)", "Git & GitHub", "REST APIs", "Responsive Design", "UI/UX Implementation"
   ];
 
   const projects = [
     {
-      title: "Smart Venue Booking Platform",
-      description: "A multi-role booking system built with separate Admin, Owner, and User dashboards. Features real-time availability, slot selection, booking management, and dynamic forms.",
-      tech: ["React", "TypeScript", "Context API", "Tailwind CSS"],
+      title: "Hagz Now - Venue Booking Platform",
+      description: "Multi-role React.js booking application with JWT authentication, dynamic booking flow, and comprehensive dashboards. Features bilingual UI (RTL/LTR), role-based routing, real-time availability, and admin control panel with analytics.",
+      tech: ["React", "TypeScript", "Context API", "TailwindCSS", "Formik"],
       liveLink: "#",
       githubLink: "#"
     },
@@ -74,17 +74,17 @@ export default function Home() {
       githubLink: "#"
     },
     {
-      title: "LMS Dashboard Interface",
-      description: "A clean and intuitive LMS interface with progress tracking, course browsing, quizzes, analytics, and a fully responsive dashboard layout.",
-      tech: ["Next.js", "TypeScript", "Redux Toolkit", "Tailwind CSS"],
-      liveLink: "#",
-      githubLink: "#"
+      title: "Angular E-Commerce Platform",
+      description: "A full-featured e-commerce platform built with Angular, featuring product catalog, shopping cart, user authentication, and seamless checkout experience with responsive design.",
+      tech: ["Angular", "TypeScript", "RxJS", "Bootstrap"],
+      liveLink: "https://angular-e-commerce-mocha.vercel.app/home",
+      githubLink: "https://github.com/hazemkhattab/angular-E-COMMERCE"
     },
     {
-      title: "AI Chat Assistant Interface",
-      description: "A sleek chat interface inspired by modern AI tools, with smooth animations, message streaming effect, dark/light mode, and mobile-first design.",
-      tech: ["React", "TypeScript", "Styled Components"],
-      liveLink: "#",
+      title: "Smart Trash - Keep it Clean",
+      description: "Graduation project: Smart bin system with real-time monitoring dashboard for waste management. Integrated sensors and connectivity to optimize collection routes, minimize overflowing bins, and promote environmental conservation.",
+      tech: ["IoT", "React", "Dashboard", "Real-time Monitoring"],
+      liveLink: "https://smart-trash-deployment.vercel.app/",
       githubLink: "#"
     }
   ];
