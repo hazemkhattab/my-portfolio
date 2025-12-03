@@ -83,7 +83,7 @@ export default function Home() {
       tech: ["Angular", "TypeScript", "RxJS", "Bootstrap"],
       liveLink: "https://angular-e-commerce-mocha.vercel.app/home",
       githubLink: "https://github.com/hazemkhattab/angular-E-COMMERCE",
-      image: "/angular-ecommerce.png"
+      image: "/angular-ecommerce-new.png"
     },
     {
       title: "Smart Trash - Keep it Clean",
