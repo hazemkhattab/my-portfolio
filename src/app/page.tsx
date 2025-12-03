@@ -4,7 +4,8 @@ import { useState } from "react";
 import { Github, Linkedin, Mail, Download, ExternalLink, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
+import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
 import { CustomCursor } from "@/components/CustomCursor";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -20,6 +21,7 @@ import {
 } from "@/lib/animations";
 
 export default function Home() {
+  const [activeProject, setActiveProject] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -64,28 +66,32 @@ export default function Home() {
       description: "Multi-role React.js booking application with JWT authentication, dynamic booking flow, and comprehensive dashboards. Features bilingual UI (RTL/LTR), role-based routing, real-time availability, and admin control panel with analytics.",
       tech: ["React", "TypeScript", "Context API", "TailwindCSS", "Formik"],
       liveLink: "#",
-      githubLink: "#"
+      githubLink: "#",
+      image: "/hagz-now.jpg"
     },
     {
       title: "Elegant Personal Portfolio",
       description: "A fully responsive, animated personal portfolio built with React and Framer Motion, showcasing clean UI, dark mode support, and fast performance.",
       tech: ["React", "Vite", "Tailwind", "Framer Motion"],
       liveLink: "#",
-      githubLink: "#"
+      githubLink: "#",
+      image: "/portfolio.png"
     },
     {
       title: "Angular E-Commerce Platform",
       description: "A full-featured e-commerce platform built with Angular, featuring product catalog, shopping cart, user authentication, and seamless checkout experience with responsive design.",
       tech: ["Angular", "TypeScript", "RxJS", "Bootstrap"],
       liveLink: "https://angular-e-commerce-mocha.vercel.app/home",
-      githubLink: "https://github.com/hazemkhattab/angular-E-COMMERCE"
+      githubLink: "https://github.com/hazemkhattab/angular-E-COMMERCE",
+      image: "/angular-ecommerce.png"
     },
     {
       title: "Smart Trash - Keep it Clean",
       description: "Graduation project: Smart bin system with real-time monitoring dashboard for waste management. Integrated sensors and connectivity to optimize collection routes, minimize overflowing bins, and promote environmental conservation.",
       tech: ["IoT", "React", "Dashboard", "Real-time Monitoring"],
       liveLink: "https://smart-trash-deployment.vercel.app/",
-      githubLink: "#"
+      githubLink: "#",
+      image: "/project-placeholder.png"
     }
   ];
 
@@ -95,7 +101,7 @@ export default function Home() {
       <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
         {/* Animated gradient background - darker in dark mode */}
         <div className="fixed inset-0 -z-10 gradient-animated opacity-[0.03]" aria-hidden="true" />
-        
+
         {/* Navigation */}
         <motion.nav
           initial={{ y: -100 }}
@@ -125,7 +131,7 @@ export default function Home() {
             {/* Gradient orb decorations */}
             <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full blur-3xl" aria-hidden="true" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl" aria-hidden="true" />
-            
+
             <div className="max-w-5xl mx-auto text-center relative z-10">
               <motion.div
                 variants={shouldReduceMotion ? {} : heroText}
@@ -327,63 +333,91 @@ export default function Home() {
               >
                 <span className="gradient-text-accent">Projects</span>
               </motion.h2>
-              <motion.div
-                variants={shouldReduceMotion ? {} : staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                className="grid md:grid-cols-2 gap-8"
-                role="list"
-                aria-label="Projects"
-              >
+              <div className="flex flex-col gap-8">
                 {projects.map((project, index) => (
                   <motion.article
                     key={index}
-                    variants={shouldReduceMotion ? {} : cardHover}
-                    initial="rest"
-                    whileHover="hover"
-                    className="glass p-6 rounded-xl border border-border hover:border-border/80 hover:shadow-2xl hover:shadow-black/20 transition-all focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 relative overflow-hidden group"
-                    role="listitem"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group relative glass rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-2xl transition-all duration-300 flex flex-col md:flex-row"
                   >
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 transition-all duration-300 -z-10" />
-                    
-                    <h3 className="text-xl font-bold mb-3 gradient-text">{project.title}</h3>
-                    <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4" role="list" aria-label="Technologies used">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 glass text-sm rounded-full border border-white/10"
-                          role="listitem"
+                    {/* Left Content */}
+                    <div className="flex-1 p-8 flex flex-col justify-center relative z-10">
+                      <div className="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                          <h3 className="text-2xl font-bold gradient-text mb-2">{project.title}</h3>
+                          <p className="text-muted-foreground line-clamp-2 mb-4 max-w-xl">
+                            {project.description}
+                          </p>
+                        </div>
+
+                        {/* Links - Desktop */}
+                        <div className="hidden md:flex items-center gap-3 shrink-0">
+                          <a
+                            href={project.liveLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+                            title="Live Demo"
+                          >
+                            <ExternalLink size={20} />
+                          </a>
+                          <a
+                            href={project.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 rounded-full glass text-muted-foreground hover:text-foreground transition-all"
+                            title="GitHub"
+                          >
+                            <Github size={20} />
+                          </a>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2 mt-auto">
+                        {project.tech.map((tech) => (
+                          <span key={tech} className="px-3 py-1 bg-background/50 border border-border/50 rounded-lg text-sm font-medium text-muted-foreground group-hover:border-primary/20 group-hover:bg-primary/5 transition-colors">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Links - Mobile */}
+                      <div className="flex md:hidden items-center gap-4 mt-6 pt-4 border-t border-border/50">
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-primary font-medium"
                         >
-                          {tech}
-                        </span>
-                      ))}
+                          <ExternalLink size={18} /> Live Demo
+                        </a>
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-muted-foreground"
+                        >
+                          <Github size={18} /> GitHub
+                        </a>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-4">
-                      <a
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 gradient-text-accent hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
-                        aria-label={`View live demo of ${project.title}`}
-                      >
-                        Live demo <ExternalLink size={16} aria-hidden="true" />
-                      </a>
-                      <a
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
-                        aria-label={`View ${project.title} on GitHub`}
-                      >
-                        GitHub <Github size={16} aria-hidden="true" />
-                      </a>
+
+                    {/* Right Image */}
+                    <div className="relative w-full md:w-[450px] h-64 md:h-auto shrink-0 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent z-10 md:bg-gradient-to-l md:from-transparent md:to-background/20" />
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
                     </div>
                   </motion.article>
                 ))}
-              </motion.div>
+              </div>
             </div>
           </section>
 
