@@ -364,6 +364,8 @@ export default function Home() {
                     <div className="flex items-center gap-4">
                       <a
                         href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 gradient-text-accent hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
                         aria-label={`View live demo of ${project.title}`}
                       >
@@ -371,6 +373,8 @@ export default function Home() {
                       </a>
                       <a
                         href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
                         aria-label={`View ${project.title} on GitHub`}
                       >
