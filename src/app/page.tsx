@@ -9,6 +9,7 @@ import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
 import { CustomCursor } from "@/components/CustomCursor";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import SpotlightCard from "@/components/SpotlightCard";
 import {
   fadeInUp,
   fadeIn,
@@ -353,8 +354,8 @@ export default function Home() {
                       scale: 1.02,
                       transition: { duration: 0.4, ease: [0.34, 1.56, 0.64, 1] } 
                     }}
-                    className="group relative glass rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.4)] dark:hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.6)] transition-all duration-500 flex flex-col md:flex-row min-h-[250px]"
                   >
+                    <SpotlightCard className="group relative glass rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.4)] dark:hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.6)] transition-all duration-500 flex flex-col md:flex-row min-h-[250px]">
                     {/* Left Content */}
                     <div className="flex-1 p-8 flex flex-col justify-center relative z-10">
                       <div className="flex items-start justify-between gap-4 mb-4">
@@ -427,6 +428,7 @@ export default function Home() {
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                     </div>
+                    </SpotlightCard>
                   </motion.article>
                 ))}
               </div>
