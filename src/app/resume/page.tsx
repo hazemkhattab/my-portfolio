@@ -100,6 +100,14 @@ export default function ResumePage() {
               </div>
               <div className="space-y-6" role="list" aria-label="Projects">
                 <div role="listitem" className="pb-4 border-b border-border/50 last:border-0">
+                  <h3 className="text-xl font-semibold mb-2 text-foreground">CinemaHub - Movie Discovery Platform</h3>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-1 ml-4">
+                    <li>Built with Next.js 15 featuring real-time search, dynamic pagination, and TMDB API integration.</li>
+                    <li>Implemented server components with optimized images and server-side data fetching for SEO.</li>
+                    <li>Technologies: Next.js 15, React, TypeScript, Tailwind CSS, TMDB API.</li>
+                  </ul>
+                </div>
+                <div role="listitem" className="pb-4 border-b border-border/50 last:border-0">
                   <h3 className="text-xl font-semibold mb-2 text-foreground">Hagz Now - Venue Booking Platform</h3>
                   <ul className="list-disc list-inside text-muted-foreground space-y-1 ml-4">
                     <li>Multi-role booking app with JWT auth, dynamic booking flow, and real-time availability.</li>

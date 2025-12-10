@@ -62,6 +62,14 @@ export default function Home() {
 
   const projects = [
     {
+      title: "CinemaHub - Movie Discovery Platform",
+      description: "Modern movie discovery platform with real-time search, dynamic pagination, and detailed movie pages powered by TMDB API. Features server components, optimized images, and responsive design with server-side data fetching for SEO.",
+      tech: ["Next.js 15", "React", "TypeScript", "Tailwind CSS", "TMDB API"],
+      liveLink: "https://movie-app-gules-chi-37.vercel.app/",
+      githubLink: "https://github.com/hazemkhattab/movie-app",
+      image: "/movies-app.png"
+    },
+    {
       title: "Hagz Now - Venue Booking Platform",
       description: "Multi-role React.js booking application with JWT authentication, dynamic booking flow, and comprehensive dashboards. Features bilingual UI (RTL/LTR), role-based routing, real-time availability, and admin control panel with analytics.",
       tech: ["React", "TypeScript", "Context API", "TailwindCSS", "Formik"],
@@ -341,14 +349,18 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ delay: index * 0.1 }}
-                    className="group relative glass rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-2xl transition-all duration-300 flex flex-col md:flex-row"
+                    whileHover={{ 
+                      scale: 1.02,
+                      transition: { duration: 0.4, ease: [0.34, 1.56, 0.64, 1] } 
+                    }}
+                    className="group relative glass rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.4)] dark:hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.6)] transition-all duration-500 flex flex-col md:flex-row min-h-[280px]"
                   >
                     {/* Left Content */}
                     <div className="flex-1 p-8 flex flex-col justify-center relative z-10">
                       <div className="flex items-start justify-between gap-4 mb-4">
-                        <div>
-                          <h3 className="text-2xl font-bold gradient-text mb-2">{project.title}</h3>
-                          <p className="text-muted-foreground line-clamp-2 mb-4 max-w-xl">
+                        <div className="flex-1">
+                          <h3 className="text-2xl font-bold gradient-text mb-2 group-hover:scale-105 transition-transform duration-300 origin-left">{project.title}</h3>
+                          <p className="text-muted-foreground mb-4 max-w-xl">
                             {project.description}
                           </p>
                         </div>
