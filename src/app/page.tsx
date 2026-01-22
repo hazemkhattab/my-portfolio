@@ -142,7 +142,7 @@ export default function Home() {
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl" aria-hidden="true" />
 
             <div className="max-w-9xl mx-20 w-full relative z-10">
-              <div className="flex flex-col lg:flex-row items-center gap-12">
+              <div className="flex flex-col lg:flex-row items-end gap-12">
                 {/* Left Content */}
                 <div className="flex-1 text-center lg:text-left">
                   <motion.div
