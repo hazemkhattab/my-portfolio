@@ -141,7 +141,7 @@ export default function Home() {
             <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full blur-3xl" aria-hidden="true" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl" aria-hidden="true" />
 
-            <div className="max-w-9xl mx-20 w-full relative z-10">
+            <div className="max-w-9xl md:mx-20 w-full relative z-10">
               <div className="flex flex-col lg:flex-row items-end gap-12">
                 {/* Left Content */}
                 <div className="flex-1 text-center lg:text-left">
@@ -152,7 +152,7 @@ export default function Home() {
                   >
                     <motion.h1
                       variants={shouldReduceMotion ? {} : heroTextItem}
-                      className="text-5xl md:text-7xl font-bold mb-6 tracking-tight min-h-[10px] md:min-h-[160px] flex items-center justify-center lg:justify-start"
+                      className="text-4xl md:text-7xl font-bold mb-6 tracking-tight min-h-[100px] md:min-h-[200px] flex items-center justify-center lg:justify-start"
                     >
                       {!shouldReduceMotion ? (
                         <TypeAnimation
@@ -253,9 +253,9 @@ export default function Home() {
                   variants={shouldReduceMotion ? {} : fadeInUp}
                   initial="hidden"
                   animate="visible"
-                  className="flex-1 w-full max-w-2xl"
+                  className="hidden lg:flex flex-1 w-full max-w-2xl"
                 >
-                  <div className="relative w-full h-[800px] md:h-[600px] lg:h-[700px]">
+                  <div className="relative w-full h-[700px]">
                     <Image
                       src="/my-photo.png"
                       alt="Hazem Khattab"
