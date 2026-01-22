@@ -32,7 +32,7 @@ export default function ResumePage() {
           </div>
         </nav>
 
-        <main id="main-content" className="max-w-4xl mx-auto pt-20">
+        <main id="main-content" className="max-w-4xl mx-auto pt-20 ">
           {/* Header */}
           <motion.div
             variants={shouldReduceMotion ? {} : fadeInUp}

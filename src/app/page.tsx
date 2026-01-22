@@ -63,6 +63,14 @@ export default function Home() {
 
   const projects = [
     {
+      title: "Hagz Now - Venue Booking Platform",
+      description: "Multi-role React.js booking application with JWT authentication, dynamic booking flow, and comprehensive dashboards. Features bilingual UI (RTL/LTR), role-based routing, real-time availability, and admin control panel with analytics.",
+      tech: ["React", "TypeScript", "Context API", "TailwindCSS", "Formik"],
+      liveLink: "https://hagznow.com/",
+      githubLink: "https://github.com/HagzNow/HagzNow-Frontend",
+      image: "/hagz-now.jpg"
+    },
+    {
       title: "CinemaHub - Movie Discovery Platform",
       description: "Modern movie discovery platform with real-time search, dynamic pagination, and detailed movie pages powered by TMDB API. Features server components, optimized images, and responsive design with server-side data fetching for SEO.",
       tech: ["Next.js 15", "React", "TypeScript", "Tailwind CSS", "TMDB API"],
@@ -71,19 +79,11 @@ export default function Home() {
       image: "/movies-app.png"
     },
     {
-      title: "Hagz Now - Venue Booking Platform",
-      description: "Multi-role React.js booking application with JWT authentication, dynamic booking flow, and comprehensive dashboards. Features bilingual UI (RTL/LTR), role-based routing, real-time availability, and admin control panel with analytics.",
-      tech: ["React", "TypeScript", "Context API", "TailwindCSS", "Formik"],
-      liveLink: "#",
-      githubLink: "#",
-      image: "/hagz-now.jpg"
-    },
-    {
       title: "Elegant Personal Portfolio",
       description: "A fully responsive, animated personal portfolio built with React and Framer Motion, showcasing clean UI, dark mode support, and fast performance.",
       tech: ["React", "Vite", "Tailwind", "Framer Motion"],
       liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/hazemkhattab/my-portfolio",
       image: "/portfolio.png"
     },
     {
@@ -141,109 +141,132 @@ export default function Home() {
             <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-violet-500/20 to-purple-500/20 rounded-full blur-3xl" aria-hidden="true" />
             <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl" aria-hidden="true" />
 
-            <div className="max-w-5xl mx-auto text-center relative z-10">
-              <motion.div
-                variants={shouldReduceMotion ? {} : heroText}
-                initial="hidden"
-                animate="visible"
-              >
-                <motion.h1
-                  variants={shouldReduceMotion ? {} : heroTextItem}
-                  className="text-5xl md:text-7xl font-bold mb-6 tracking-tight"
-                >
-                  <span className="gradient-text">Hi, I'm </span>
-                  {!shouldReduceMotion ? (
-                    <TypeAnimation
-                      sequence={[
-                        'Hazem Khattab',
-                        2000,
-                        'a Frontend Developer',
-                        2000,
-                        'a React Specialist',
-                        2000,
-                      ]}
-                      wrapper="span"
-                      speed={50}
-                      className="gradient-text"
-                      repeat={Infinity}
-                    />
-                  ) : (
-                    <span className="gradient-text">Hazem Khattab</span>
-                  )}
-                </motion.h1>
-                <motion.p
-                  variants={shouldReduceMotion ? {} : heroTextItem}
-                  className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto"
-                >
-                  Frontend Developer crafting fast, accessible, and beautiful interfaces.
-                </motion.p>
-                <motion.p
-                  variants={shouldReduceMotion ? {} : heroTextItem}
-                  className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
-                >
-                  I'm a Frontend Developer specializing in building clean, responsive, and high-performance web applications. I focus on writing scalable code, creating smooth user experiences, and delivering polished digital products using React, TypeScript, and Next.js.
-                </motion.p>
-              </motion.div>
-              <motion.div
-                variants={shouldReduceMotion ? {} : staggerContainer}
-                initial="hidden"
-                animate="visible"
-                className="flex items-center justify-center gap-4 mb-12 flex-wrap"
-              >
-                <motion.a
-                  variants={shouldReduceMotion ? {} : staggerItem}
-                  href="#projects"
-                  className="px-6 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 shadow-lg"
-                >
-                  View Projects
-                </motion.a>
-                <motion.div variants={shouldReduceMotion ? {} : staggerItem}>
-                  <Link
-                    href="https://drive.google.com/file/d/1wKVxds-WsgPABMiY3_EfHL4smsreooSG/view?usp=drive_link"
-                    className="px-6 py-3 glass border rounded-full hover:bg-white/10 transition-all transform hover:scale-105 flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+            <div className="max-w-9xl mx-20 w-full relative z-10">
+              <div className="flex flex-col lg:flex-row items-center gap-12">
+                {/* Left Content */}
+                <div className="flex-1 text-center lg:text-left">
+                  <motion.div
+                    variants={shouldReduceMotion ? {} : heroText}
+                    initial="hidden"
+                    animate="visible"
                   >
-                    <Download size={18} aria-hidden="true" />
-                    Download Resume
-                  </Link>
+                    <motion.h1
+                      variants={shouldReduceMotion ? {} : heroTextItem}
+                      className="text-5xl md:text-7xl font-bold mb-6 tracking-tight min-h-[10px] md:min-h-[160px] flex items-center justify-center lg:justify-start"
+                    >
+                      {!shouldReduceMotion ? (
+                        <TypeAnimation
+                          sequence={[
+                            'Hi, I\'m Hazem Khattab',
+                            2000,
+                            'Hi, I\'m a Frontend Developer',
+                            2000,
+                            'Hi, I\'m a React Specialist',
+                            2000,
+                          ]}
+                          wrapper="span"
+                          speed={50}
+                          className="gradient-text"
+                          repeat={Infinity}
+                        />
+                      ) : (
+                        <span className="gradient-text">Hazem Khattab</span>
+                      )}
+                    </motion.h1>
+                    <motion.p
+                      variants={shouldReduceMotion ? {} : heroTextItem}
+                      className="text-xl md:text-2xl text-muted-foreground mb-4"
+                    >
+                      Frontend Developer crafting fast, accessible, and beautiful interfaces.
+                    </motion.p>
+                    <motion.p
+                      variants={shouldReduceMotion ? {} : heroTextItem}
+                      className="text-lg text-muted-foreground mb-12 leading-relaxed"
+                    >
+                      I'm a Frontend Developer specializing in building clean, responsive, and high-performance web applications. I focus on writing scalable code, creating smooth user experiences, and delivering polished digital products using React, TypeScript, and Next.js.
+                    </motion.p>
+                  </motion.div>
+                  <motion.div
+                    variants={shouldReduceMotion ? {} : staggerContainer}
+                    initial="hidden"
+                    animate="visible"
+                    className="flex items-center justify-center lg:justify-start gap-4 mb-12 flex-wrap"
+                  >
+                    <motion.a
+                      variants={shouldReduceMotion ? {} : staggerItem}
+                      href="#projects"
+                      className="px-6 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 shadow-lg"
+                    >
+                      View Projects
+                    </motion.a>
+                    <motion.div variants={shouldReduceMotion ? {} : staggerItem}>
+                      <Link
+                        href="https://drive.google.com/file/d/1wKVxds-WsgPABMiY3_EfHL4smsreooSG/view?usp=drive_link"
+                        className="px-6 py-3 glass border rounded-full hover:bg-white/10 transition-all transform hover:scale-105 flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                      >
+                        <Download size={18} aria-hidden="true" />
+                        Download Resume
+                      </Link>
+                    </motion.div>
+                  </motion.div>
+                  <motion.div
+                    variants={shouldReduceMotion ? {} : staggerContainer}
+                    initial="hidden"
+                    animate="visible"
+                    className="flex items-center justify-center lg:justify-start gap-6"
+                    role="list"
+                    aria-label="Social links"
+                  >
+                    <motion.a
+                      variants={shouldReduceMotion ? {} : staggerItem}
+                      href="https://github.com/hazemkhattab"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
+                      aria-label="GitHub profile"
+                    >
+                      <Github size={24} aria-hidden="true" />
+                    </motion.a>
+                    <motion.a
+                      variants={shouldReduceMotion ? {} : staggerItem}
+                      href="https://www.linkedin.com/in/hazem-ahmed-khattab1/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
+                      aria-label="LinkedIn profile"
+                    >
+                      <Linkedin size={24} aria-hidden="true" />
+                    </motion.a>
+                    <motion.a
+                      variants={shouldReduceMotion ? {} : staggerItem}
+                      href="mailto:hazemahmedkhattabb@gmail.com"
+                      className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
+                      aria-label="Send email"
+                    >
+                      <Mail size={24} aria-hidden="true" />
+                    </motion.a>
+                  </motion.div>
+                </div>
+
+                {/* Right Image */}
+                <motion.div
+                  variants={shouldReduceMotion ? {} : fadeInUp}
+                  initial="hidden"
+                  animate="visible"
+                  className="flex-1 w-full max-w-2xl"
+                >
+                  <div className="relative w-full h-[800px] md:h-[600px] lg:h-[700px]">
+                    <Image
+                      src="/my-photo.png"
+                      alt="Hazem Khattab"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
                 </motion.div>
-              </motion.div>
-              <motion.div
-                variants={shouldReduceMotion ? {} : staggerContainer}
-                initial="hidden"
-                animate="visible"
-                className="flex items-center justify-center gap-6"
-                role="list"
-                aria-label="Social links"
-              >
-                <motion.a
-                  variants={shouldReduceMotion ? {} : staggerItem}
-                  href="https://github.com/hazemkhattab"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
-                  aria-label="GitHub profile"
-                >
-                  <Github size={24} aria-hidden="true" />
-                </motion.a>
-                <motion.a
-                  variants={shouldReduceMotion ? {} : staggerItem}
-                  href="https://www.linkedin.com/in/hazem-ahmed-khattab1/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
-                  aria-label="LinkedIn profile"
-                >
-                  <Linkedin size={24} aria-hidden="true" />
-                </motion.a>
-                <motion.a
-                  variants={shouldReduceMotion ? {} : staggerItem}
-                  href="mailto:hazemahmedkhattabb@gmail.com"
-                  className="text-muted-foreground hover:text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded"
-                  aria-label="Send email"
-                >
-                  <Mail size={24} aria-hidden="true" />
-                </motion.a>
-              </motion.div>
+              </div>
+
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -355,9 +378,9 @@ export default function Home() {
                       transition: { duration: 0.4, ease: [0.34, 1.56, 0.64, 1] } 
                     }}
                   >
-                    <SpotlightCard className="group relative glass rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.4)] dark:hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.6)] transition-all duration-500 flex flex-col md:flex-row min-h-[250px]">
+                    <SpotlightCard className="group relative glass rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.4)] dark:hover:shadow-[0_20px_60px_-15px_rgba(168,85,247,0.6)] transition-all duration-500 flex flex-col md:flex-row min-h-[250px] bg-white/80 dark:bg-background/50">
                     {/* Left Content */}
-                    <div className="flex-1 p-8 flex flex-col justify-center relative z-10">
+                    <div className="flex-1 p-8 flex flex-col justify-center relative z-10 bg-white/60 dark:bg-transparent">
                       <div className="flex items-start justify-between gap-4 mb-4">
                         <div className="flex-1">
                           <h3 className="text-2xl font-bold gradient-text mb-2 group-hover:scale-105 transition-transform duration-300 origin-left">{project.title}</h3>
